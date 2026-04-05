@@ -1,1 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار تأثيرات الأزرار - كمبيوتر vs جوال</title>
+    <style>
+        /* تنسيقات عامة لتنظيم الصفحة */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f7f6;
+            gap: 20px;
+        }
 
+        .container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        h1 { color: #333; }
+        p { color: #666; margin-bottom: 30px; }
+
+        /* --- 1. كود الزر الأساسي (بدون تأثير) --- */
+        .button-static {
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 50px; /* زوايا دائرية */
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        /* --- 2. كود الزر التفاعلي (بأفضل الممارسات) --- */
+        .button-interactive {
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 10px;
+            /* الانتقال الناعم Transition */
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* الكود الذي يعمل على الكمبيوتر فقط (الذي يدعم الفأرة) */
+        @media (hover: hover) {
+            .button-interactive:hover {
+                background-color: #27ae60;
+                transform: scale(1.1); /* تكبير الزر قليلاً */
+                box-shadow: 0 8px 20px rgba(46, 204, 113, 0.4);
+            }
+            
+            .button-interactive:active {
+                transform: scale(0.95); /* تأثير الضغط لأسفل */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>تجربة Hover CSS</h1>
+        <p>جرب تمرير الفأرة على الأزرار إذا كنت تستخدم الكمبيوتر، <br> أو المسها إذا كنت تستخدم الجوال.</p>
+
+        <button class="button-static">زر بدون تأثير (للتحكم)</button>
+
+        <button class="button-interactive">زر بتأثير (كمبيوتر فقط)</button>
+    </div>
+
+</body>
+</html>
